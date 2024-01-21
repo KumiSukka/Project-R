@@ -23,7 +23,7 @@ func get_center():
 
 func split(remaining, paths):
 	var rng = RandomNumberGenerator.new()
-	var split_percent = rng.randf_range(0.35,0.65) #Oksien katkaisut tulee olemaan 30%-70%
+	var split_percent = rng.randf_range(0.40,0.60) #Oksien katkaisut tulee olemaan 30%-70%
 	var split_horizontal = size.y >= size.x #tarkastetaan että ei ole korkeampi kuin leveä
 
 	if(split_horizontal):

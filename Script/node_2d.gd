@@ -50,8 +50,8 @@ func _draw():
 				for i in range(path["right"].x - path["left"].x):
 					#figuroi parempi tapa esim patternit käytävän seinille
 					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y -2), 0, Vector2i(17, 11)) #ylä seinä
-					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y -1), 0, Vector2i(17, 12)) #ylä seinä
-					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y +1), 0, Vector2i(16, 14)) # ala seinä
+					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y -1), 0, Vector2i(17, 12)) #seinä
+					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y +1), 0, Vector2i(16, 14)) #ala seinä
 					tilemap.set_cell(1, Vector2i(path["left"].x+i,path["left"].y), 0, Vector2i(9, 12))
 		else:
 		 	# vertical
