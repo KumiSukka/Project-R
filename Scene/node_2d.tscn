@@ -1,22 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn5m177dvh1wn"]
+[gd_scene load_steps=8 format=3 uid="uid://cn5m177dvh1wn"]
 
 [ext_resource type="Script" path="res://Script/node_2d.gd" id="1_tadua"]
 [ext_resource type="Texture2D" uid="uid://dopjrv8s5tx21" path="res://Tilemap/Tatami-house-tileseet.png" id="2_b1r5b"]
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_u06t1"]
-tile_data = PackedInt32Array(0, 1048576, 7, 65536, 1048576, 8, 131072, 1048576, 9, 1, 1114112, 7, 65537, 1114112, 8, 131073, 1114112, 9, 2, 1179648, 7, 65538, 1179648, 8, 131074, 1179648, 9, 3, 1245184, 7, 65539, 1245184, 8, 131075, 1245184, 9)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_mpfte"]
-tile_data = PackedInt32Array(0, 655360, 9, 65536, 655360, 10, 131072, 655360, 11, 1, 720896, 9, 65537, 720896, 10, 131073, 720896, 11, 2, 786432, 9, 65538, 786432, 10, 131074, 786432, 11, 3, 851968, 9, 65539, 851968, 10, 131075, 851968, 11)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_7cm5k"]
-tile_data = PackedInt32Array(0, 655360, 12, 65536, 655360, 13, 131072, 655360, 14, 1, 720896, 12, 65537, 720896, 13, 131073, 720896, 14, 2, 786432, 12, 65538, 786432, 13, 131074, 786432, 14, 3, 851968, 12, 65539, 851968, 13, 131075, 851968, 14)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7mogb"]
 tile_data = PackedInt32Array(0, 1048576, 2, 65536, 1048576, 3, 131072, 1048576, 4, 1, 1114112, 2, 65537, 1114112, 3, 131073, 1114112, 4, 2, 1179648, 2, 65538, 1179648, 3, 131074, 1179648, 4, 3, 1245184, 2, 65539, 1245184, 3, 131075, 1245184, 4, 4, 1310720, 2, 65540, 1310720, 3, 131076, 1310720, 4)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5bjjb"]
 tile_data = PackedInt32Array(0, 1179648, 2, 65536, 1179648, 3, 131072, 1179648, 4)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_j654j"]
+tile_data = PackedInt32Array(0, 131072, 11, 65536, 131072, 12, 131072, 131072, 13)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p15cq"]
 texture = ExtResource("2_b1r5b")
@@ -323,11 +317,9 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.776471, 0, 0.356863, 1)
 sources/0 = SubResource("TileSetAtlasSource_p15cq")
-pattern_0 = SubResource("TileMapPattern_u06t1")
-pattern_1 = SubResource("TileMapPattern_mpfte")
-pattern_2 = SubResource("TileMapPattern_7cm5k")
-pattern_3 = SubResource("TileMapPattern_7mogb")
-pattern_4 = SubResource("TileMapPattern_5bjjb")
+pattern_0 = SubResource("TileMapPattern_7mogb")
+pattern_1 = SubResource("TileMapPattern_5bjjb")
+pattern_2 = SubResource("TileMapPattern_j654j")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_tadua")
@@ -336,8 +328,9 @@ script = ExtResource("1_tadua")
 texture_filter = 1
 tile_set = SubResource("TileSet_vcdy8")
 format = 2
-layer_0/tile_data = PackedInt32Array(524293, 983041, 8, 524294, 1114113, 8, 524295, 1179649, 8, 524296, 1114113, 8, 524297, 1245185, 8, 524298, 1048577, 8, 524299, 1114113, 8, 524300, 1310721, 8, 458764, 1310721, 7, 393228, 1310721, 7, 327692, 1310721, 6, 327691, 1114113, 6, 327690, 1179649, 6, 327689, 1245185, 6, 327688, 1245185, 6, 327687, 1114113, 6, 327686, 1048577, 6, 327685, 983041, 6, 393221, 983041, 7, 458757, 983041, 7, 458758, 1245185, 7, 393222, 1048577, 7, 393223, 1114113, 7, 458759, 1245185, 7, 458760, 1048577, 7, 393224, 1245185, 7, 393225, 1114113, 7, 393226, 1179649, 7, 393227, 1179649, 7, 458763, 1114113, 7, 458762, 1048577, 7, 458761, 1179649, 7)
+layer_0/name = "Seinät"
+layer_1/name = "Lattia"
+layer_1/tile_data = PackedInt32Array(524293, 983041, 8, 524294, 1114113, 8, 524295, 1179649, 8, 524296, 1114113, 8, 524297, 1245185, 8, 524298, 1048577, 8, 524299, 1114113, 8, 524300, 1310721, 8, 458764, 1310721, 7, 393228, 1310721, 7, 327692, 1310721, 6, 327691, 1114113, 6, 327690, 1179649, 6, 327689, 1245185, 6, 327688, 1245185, 6, 327687, 1114113, 6, 327686, 1048577, 6, 327685, 983041, 6, 393221, 983041, 7, 458757, 983041, 7, 458758, 1245185, 7, 393222, 1048577, 7, 393223, 1114113, 7, 458759, 1245185, 7, 458760, 1048577, 7, 393224, 1245185, 7, 393225, 1114113, 7, 393226, 1179649, 7, 393227, 1179649, 7, 458763, 1114113, 7, 458762, 1048577, 7, 458761, 1179649, 7)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1342, 759)
-zoom = Vector2(0.7, 0.7)
+position = Vector2(1060, 585)
