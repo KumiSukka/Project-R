@@ -6,13 +6,13 @@ var tile_size: int = 16
 var paths: Array = []
 var cells: Array = []
 
-var wall_tiles = []
-
+var Room_AutoMap = []
+var Can_Place_Over_These = "can_place"
 
 #Tässä piirämme lehdet
 func _ready():
 	tilemap = get_node("TileMap")
-	root_node  = Branch.new(Vector2i(0, 0), Vector2i(120, 60)) #60 leveä ja 30 pitkä
+	root_node  = Branch.new(Vector2i(0, 0), Vector2i(120, 70)) #60 leveä ja 30 pitkä
 	root_node.split(3, paths)
 	queue_redraw()
 	pass
@@ -32,8 +32,9 @@ func _draw():
 			for y in range(leaf.size.y):
 				if not is_outside_padding(x, y, leaf, padding):
 					tilemap.set_cell(0, Vector2i(x + leaf.position.x  +1,y + leaf.position.y +1) , 0, Vector2i(17, 8))
+					Room_AutoMap.append(Vector2i(x + leaf.position.x  +1,y + leaf.position.y +1))
 				if not is_inside_padding(x, y, leaf, padding):
-					tilemap.set_cell(1, Vector2i(x + leaf.position.x,y + leaf.position.y), 0, Vector2i(9, 12))
+					tilemap.set_cell(1, Vector2i(x + leaf.position.x,y + leaf.position.y), 0, Vector2i(17, 13))
 					draw_rect(
 			Rect2(
 				leaf.position.x * tile_size, # x
@@ -49,16 +50,22 @@ func _draw():
 			#horizontal
 				for i in range(path["right"].x - path["left"].x):
 					#figuroi parempi tapa esim patternit käytävän seinille
-					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y -2), 0, Vector2i(17, 11)) #ylä seinä
 					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y -1), 0, Vector2i(17, 12)) #seinä
 					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y +1), 0, Vector2i(16, 14)) #ala seinä
-					tilemap.set_cell(1, Vector2i(path["left"].x+i,path["left"].y), 0, Vector2i(9, 12))
+					tilemap.set_cell(0, Vector2i(path["left"].x+i,path["left"].y), 0, Vector2i(17, 13))
+					Room_AutoMap.append(Vector2i(path["left"].x+i,path["left"].y -1))
+					Room_AutoMap.append(Vector2i(path["left"].x+i,path["left"].y +1))
+					Room_AutoMap.append(Vector2i(path["left"].x+i,path["left"].y))
 		else:
 		 	# vertical
 				for i in range(path['right'].y - path['left'].y):
 					tilemap.set_cell(0, Vector2i(path['left'].x -1,path['left'].y+i), 0, Vector2i(15, 13)) #vasen seinä
 					tilemap.set_cell(0, Vector2i(path['left'].x +1,path['left'].y+i), 0, Vector2i(20, 13)) #oikea seinä
-					tilemap.set_cell(1, Vector2i(path['left'].x,path['left'].y+i), 0, Vector2i(9, 12))
+					tilemap.set_cell(0, Vector2i(path['left'].x,path['left'].y+i), 0, Vector2i(17, 13))
+					Room_AutoMap.append(Vector2i(path['left'].x -1,path['left'].y+i))
+					Room_AutoMap.append(Vector2i(path['left'].x +1,path['left'].y+i))
+					Room_AutoMap.append(Vector2i(path['left'].x,path['left'].y+i))
+		tilemap.set_cells_terrain_connect(0, Room_AutoMap, 0,0)
 	pass
 
 func is_inside_padding(x, y, leaf, padding):
