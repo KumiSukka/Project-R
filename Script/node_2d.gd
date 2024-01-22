@@ -12,7 +12,7 @@ var Can_Place_Over_These = "can_place"
 #Tässä piirämme lehdet
 func _ready():
 	tilemap = get_node("TileMap")
-	root_node  = Branch.new(Vector2i(0, 0), Vector2i(120, 70)) #60 leveä ja 30 pitkä
+	root_node  = Branch.new(Vector2i(0, 0), Vector2i(120, 50)) #60 leveä ja 30 pitkä
 	root_node.split(3, paths)
 	queue_redraw()
 	pass
@@ -34,7 +34,7 @@ func _draw():
 					tilemap.set_cell(0, Vector2i(x + leaf.position.x  +1,y + leaf.position.y +1) , 0, Vector2i(17, 8))
 					Room_AutoMap.append(Vector2i(x + leaf.position.x  +1,y + leaf.position.y +1))
 				if not is_inside_padding(x, y, leaf, padding):
-					tilemap.set_cell(1, Vector2i(x + leaf.position.x,y + leaf.position.y), 0, Vector2i(17, 13))
+					tilemap.set_cell(0, Vector2i(x + leaf.position.x,y + leaf.position.y), 0, Vector2i(17, 13))
 					draw_rect(
 			Rect2(
 				leaf.position.x * tile_size, # x
@@ -43,7 +43,7 @@ func _draw():
 				leaf.size.y * tile_size # height/korkeus
 			), 
 			Color.REBECCA_PURPLE, # colour/väri reunille
-			true # is filled - täytetty
+			false # is filled - täytetty
 			)
 	for path in paths:
 		if path["left"].y == path["right"].y:
