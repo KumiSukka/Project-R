@@ -6,7 +6,7 @@ var tile_size: int = 16
 var paths: Array = []
 var cells: Array = []
 
-
+var wall_tiles = []
 
 
 #Tässä piirämme lehdet
