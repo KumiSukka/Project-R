@@ -1015,3 +1015,6 @@ position = Vector2(985, 563)
 
 [node name="Player_Spawn" type="Marker2D" parent="."]
 position = Vector2(175, 114)
+
+[node name="End_Point" type="Marker2D" parent="."]
+position = Vector2(177, 114)
