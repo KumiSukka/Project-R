@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d3fi60cvumh8s"
+path="res://.godot/imported/Tatami-house-tileseet.aseprite-dc9c20296f7bbd2c7a41ef010861ca01.res"
+
+[deps]
+
+source_file="res://Tilemap/Tatami-house-tileseet.aseprite"
+dest_files=["res://.godot/imported/Tatami-house-tileseet.aseprite-dc9c20296f7bbd2c7a41ef010861ca01.res"]
+
+[params]
+
