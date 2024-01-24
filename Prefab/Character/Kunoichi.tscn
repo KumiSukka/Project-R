@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dobsauiogde3p"]
+[gd_scene load_steps=10 format=3 uid="uid://dobsauiogde3p"]
 
-[ext_resource type="Texture2D" uid="uid://cbjnm06itafcs" path="res://Scene/kunoichi .png" id="1_al08y"]
+[ext_resource type="Texture2D" uid="uid://cbjnm06itafcs" path="res://Prefab/Character/kunoichi .png" id="1_2s357"]
+[ext_resource type="Script" path="res://Prefab/Character/Kunoichi.gd" id="1_scndu"]
 
-[sub_resource type="Animation" id="Animation_lxkg5"]
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_b7w8t"]
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,7 +15,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_al08y")]
+"values": [ExtResource("1_2s357")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -59,10 +60,10 @@ tracks/4/path = NodePath("PlayerSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 1, 2, 3, 3, 3]
+"values": [16, 17, 17]
 }
 
 [sub_resource type="Animation" id="Animation_8y6e3"]
@@ -77,7 +78,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_al08y")]
+"values": [ExtResource("1_2s357")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -128,6 +129,69 @@ tracks/4/keys = {
 "values": [4, 4, 4, 4, 4, 5, 6, 7, 7, 7]
 }
 
+[sub_resource type="Animation" id="Animation_lxkg5"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_2s357")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 0, 0, 1, 2, 3, 3, 3]
+}
+
 [sub_resource type="Animation" id="Animation_0ioue"]
 length = 0.6
 loop_mode = 1
@@ -141,7 +205,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_al08y")]
+"values": [ExtResource("1_2s357")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -205,7 +269,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_al08y")]
+"values": [ExtResource("1_2s357")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -256,70 +320,6 @@ tracks/4/keys = {
 "values": [7, 12, 13, 14, 15, 4]
 }
 
-[sub_resource type="Animation" id="Animation_b7w8t"]
-length = 0.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_al08y")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerSprite:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerSprite:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerSprite:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [16, 17, 17]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_811vw"]
 _data = {
 "Dash": SubResource("Animation_b7w8t"),
@@ -329,14 +329,17 @@ _data = {
 "WalkBack": SubResource("Animation_ljajp")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ehmy"]
+size = Vector2(11, 15)
+
 [node name="Kunoichi" type="CharacterBody2D"]
+script = ExtResource("1_scndu")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_al08y")
+texture = ExtResource("1_2s357")
 hframes = 5
 vframes = 4
-frame = 3
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -354,3 +357,7 @@ metadata/_aseprite_wizard_config_ = {
 libraries = {
 "": SubResource("AnimationLibrary_811vw")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 8.5)
+shape = SubResource("RectangleShape2D_0ehmy")

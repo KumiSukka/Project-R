@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn5m177dvh1wn"]
+[gd_scene load_steps=9 format=3 uid="uid://cn5m177dvh1wn"]
 
 [ext_resource type="Script" path="res://Script/node_2d.gd" id="1_tadua"]
 [ext_resource type="Texture2D" uid="uid://dopjrv8s5tx21" path="res://Tilemap/Tatami-house-tileseet.png" id="2_b1r5b"]
+[ext_resource type="PackedScene" uid="uid://dobsauiogde3p" path="res://Prefab/Character/Kunoichi.tscn" id="3_6xvrc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7mogb"]
 tile_data = PackedInt32Array(0, 1048576, 2, 65536, 1048576, 3, 131072, 1048576, 4, 1, 1114112, 2, 65537, 1114112, 3, 131073, 1114112, 4, 2, 1179648, 2, 65538, 1179648, 3, 131074, 1179648, 4, 3, 1245184, 2, 65539, 1245184, 3, 131075, 1245184, 4, 4, 1310720, 2, 65540, 1310720, 3, 131076, 1310720, 4)
@@ -1013,8 +1014,5 @@ layer_1/tile_data = PackedInt32Array(524293, 983041, 8, 524294, 1114113, 8, 5242
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(985, 563)
 
-[node name="Player_Spawn" type="Marker2D" parent="."]
-position = Vector2(175, 114)
-
-[node name="End_Point" type="Marker2D" parent="."]
-position = Vector2(177, 114)
+[node name="Kunoichi" parent="." instance=ExtResource("3_6xvrc")]
+position = Vector2(308, 186)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbjnm06itafcs"
-path="res://.godot/imported/kunoichi .png-78b9021008aaf8d591d7942cc6bc43b1.ctex"
+path="res://.godot/imported/kunoichi .png-f66b073c1d3ef355366f4a19d9a6176a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scene/kunoichi .png"
-dest_files=["res://.godot/imported/kunoichi .png-78b9021008aaf8d591d7942cc6bc43b1.ctex"]
+source_file="res://Prefab/Character/kunoichi .png"
+dest_files=["res://.godot/imported/kunoichi .png-f66b073c1d3ef355366f4a19d9a6176a.ctex"]
 
 [params]
 
