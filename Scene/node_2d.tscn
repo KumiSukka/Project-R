@@ -1012,3 +1012,6 @@ layer_1/tile_data = PackedInt32Array(524293, 983041, 8, 524294, 1114113, 8, 5242
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(985, 563)
+
+[node name="Player_Spawn" type="Marker2D" parent="."]
+position = Vector2(175, 114)
