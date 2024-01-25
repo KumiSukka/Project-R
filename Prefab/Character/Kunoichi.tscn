@@ -257,7 +257,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3p0cv"]
-length = 0.7
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -314,10 +314,10 @@ tracks/4/path = NodePath("PlayerSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 13, 14, 15, 16, 0, 0]
+"values": [0, 13, 14, 15, 16, 0]
 }
 
 [sub_resource type="Animation" id="Animation_oqusx"]
@@ -532,7 +532,7 @@ texture_filter = 1
 texture = ExtResource("1_2s357")
 hframes = 6
 vframes = 5
-frame = 1
+frame = 4
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
