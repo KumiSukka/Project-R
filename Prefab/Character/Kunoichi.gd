@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var move_speed = 150
+@export var move_speed = 100
 @export var dash_speed = 300
-@export var dash_duration = 0.2
+@export var dash_duration = 0.3
 @export var starting_direction : Vector2 = Vector2(0, 1)
 #parameters/Idle/blend_position
 
@@ -27,6 +27,7 @@ func get_input():
 	#Dash	
 	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
 		dash.start_dash(dash_duration)
+		dash.end_dash()
 	var speed = dash_speed if dash.is_dashing() else move_speed
 	
 	velocity = input_direction * speed
@@ -43,9 +44,12 @@ func update_animation_parameters(move_input : Vector2):
 	#Elä vaihda animaatio parameettrejä jos ei imputtia liikkua
 	if (move_input != Vector2.ZERO):
 		animation_tree.set("parameters/Walk/blend_position", move_input)
+		animation_tree.set("parameters/Dash/blend_position", move_input)
 		animation_tree.set("parameters/Idle/blend_position", move_input)
 func pick_state():
-	if (velocity != Vector2.ZERO):
+	if (velocity != Vector2.ZERO) && !dash.is_dashing():
 		state_machine.travel("Walk")
-	else:
+	elif (Input.is_action_just_pressed("dash")):
+		state_machine.travel("Dash")
+	elif (velocity == Vector2.ZERO):
 		state_machine.travel("Idle")

@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var duration_timer = $DurationTimer
-const dash_delay = 20
+const dash_delay = 0.6
 var can_dash = true
 
 func start_dash(duration):
@@ -15,3 +15,6 @@ func end_dash():
 	can_dash = false
 	await get_tree().create_timer(dash_delay).timeout
 	can_dash = true
+	
+func _on_DurationTimer_Timeout() -> void:
+		end_dash()
