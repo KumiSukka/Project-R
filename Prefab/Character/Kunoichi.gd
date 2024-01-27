@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
-@export var speed = 150
+@export var move_speed = 150
+@export var dash_speed = 300
+@export var dash_duration = 0.2
 @export var starting_direction : Vector2 = Vector2(0, 1)
 #parameters/Idle/blend_position
 
 @onready var animation_tree = $AnimationTree
 @onready var Player_Sprite = $PlayerSprite
+@onready var dash = $Dash
 @onready var state_machine = animation_tree.get("parameters/playback")
+
 
 func _ready():
 	update_animation_parameters(starting_direction)
@@ -14,12 +18,18 @@ func _ready():
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	update_animation_parameters(input_direction)
-	velocity = input_direction * speed
+	
 	#Flip
 	if input_direction == Vector2.RIGHT:
 		Player_Sprite.flip_h = false
 	elif input_direction == Vector2.LEFT:
 		Player_Sprite.flip_h = true
+	#Dash	
+	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
+		dash.start_dash(dash_duration)
+	var speed = dash_speed if dash.is_dashing() else move_speed
+	
+	velocity = input_direction * speed
 
 	
 	

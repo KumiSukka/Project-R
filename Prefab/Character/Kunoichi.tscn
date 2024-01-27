@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://dobsauiogde3p"]
+[gd_scene load_steps=39 format=3 uid="uid://dobsauiogde3p"]
 
 [ext_resource type="Texture2D" uid="uid://cbjnm06itafcs" path="res://Prefab/Character/kunoichi .png" id="1_2s357"]
 [ext_resource type="Script" path="res://Prefab/Character/Kunoichi.gd" id="1_scndu"]
+[ext_resource type="PackedScene" uid="uid://b5615wo7u3usc" path="res://Scene/Dash.tscn" id="3_lnymi"]
 
 [sub_resource type="Animation" id="Animation_3wkbb"]
 length = 0.3
@@ -697,7 +698,7 @@ texture_filter = 1
 texture = ExtResource("1_2s357")
 hframes = 6
 vframes = 6
-frame = 2
+frame = 4
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -730,3 +731,5 @@ anim_player = NodePath("../PlayerAnimation")
 parameters/Dash/blend_position = Vector2(0.143216, 0.295154)
 parameters/Idle/blend_position = Vector2(0.00251257, 0.0748899)
 parameters/Walk/blend_position = Vector2(-0.0351759, 0.703704)
+
+[node name="Dash" parent="." instance=ExtResource("3_lnymi")]

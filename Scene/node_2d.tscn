@@ -1013,6 +1013,7 @@ layer_1/tile_data = PackedInt32Array(524293, 983041, 8, 524294, 1114113, 8, 5242
 
 [node name="Kunoichi" parent="." instance=ExtResource("3_6xvrc")]
 position = Vector2(308, 186)
+starting_direction = Vector2(0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Kunoichi"]
 position = Vector2(0, 6)
