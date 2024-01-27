@@ -5,9 +5,10 @@ var tilemap:TileMap
 var tile_size: int = 16
 var paths: Array = []
 var cells: Array = []
-
 var Room_AutoMap = []
+var Random_Tile = []
 var Can_Place_Over_These = "can_place"
+@onready var Player = $Kunoichi
 
 #Tässä piirämme lehdet
 func _ready():
@@ -66,6 +67,9 @@ func _draw():
 					Room_AutoMap.append(Vector2i(path['left'].x +1,path['left'].y+i))
 					Room_AutoMap.append(Vector2i(path['left'].x,path['left'].y+i))
 		tilemap.set_cells_terrain_connect(0, Room_AutoMap, 0,0)
+		Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13))
+		var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
+		Player.position = random_pos
 	pass
 
 func is_inside_padding(x, y, leaf, padding):
@@ -73,4 +77,3 @@ func is_inside_padding(x, y, leaf, padding):
 func is_outside_padding(x, y, leaf, padding):
 	return x <= padding.x or y <= padding.y or x >= leaf.size.x - padding.z or y >= leaf.size.y - padding.w
 	
-

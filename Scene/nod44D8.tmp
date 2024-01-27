@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn5m177dvh1wn"]
+[gd_scene load_steps=10 format=3 uid="uid://cn5m177dvh1wn"]
 
 [ext_resource type="Script" path="res://Script/node_2d.gd" id="1_tadua"]
 [ext_resource type="Texture2D" uid="uid://dopjrv8s5tx21" path="res://Tilemap/Tatami-house-tileseet.png" id="2_b1r5b"]
 [ext_resource type="PackedScene" uid="uid://dobsauiogde3p" path="res://Prefab/Character/Kunoichi.tscn" id="3_6xvrc"]
+[ext_resource type="Script" path="res://Script/Spawner.gd" id="3_352eu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7mogb"]
 tile_data = PackedInt32Array(0, 1048576, 2, 65536, 1048576, 3, 131072, 1048576, 4, 1, 1114112, 2, 65537, 1114112, 3, 131073, 1114112, 4, 2, 1179648, 2, 65538, 1179648, 3, 131074, 1179648, 4, 3, 1245184, 2, 65539, 1245184, 3, 131075, 1245184, 4, 4, 1310720, 2, 65540, 1310720, 3, 131076, 1310720, 4)
@@ -1011,7 +1012,11 @@ layer_0/name = "Seinät"
 layer_1/name = "Lattia"
 layer_1/tile_data = PackedInt32Array(524293, 983041, 8, 524294, 1114113, 8, 524295, 1179649, 8, 524296, 1114113, 8, 524297, 1245185, 8, 524298, 1048577, 8, 524299, 1114113, 8, 524300, 1310721, 8, 458764, 1310721, 7, 393228, 1310721, 7, 327692, 1310721, 6, 327691, 1114113, 6, 327690, 1179649, 6, 327689, 1245185, 6, 327688, 1245185, 6, 327687, 1114113, 6, 327686, 1048577, 6, 327685, 983041, 6, 393221, 983041, 7, 458757, 983041, 7, 458758, 1245185, 7, 393222, 1048577, 7, 393223, 1114113, 7, 458759, 1245185, 7, 458760, 1048577, 7, 393224, 1245185, 7, 393225, 1114113, 7, 393226, 1179649, 7, 393227, 1179649, 7, 458763, 1114113, 7, 458762, 1048577, 7, 458761, 1179649, 7)
 
+[node name="Spawner" type="Node2D" parent="TileMap"]
+script = ExtResource("3_352eu")
+
 [node name="Kunoichi" parent="." instance=ExtResource("3_6xvrc")]
+position = Vector2(308, 186)
 
 [node name="Camera2D" type="Camera2D" parent="Kunoichi"]
 position = Vector2(0, 6)
