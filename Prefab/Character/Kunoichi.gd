@@ -46,7 +46,7 @@ func update_animation_parameters(move_input : Vector2):
 		animation_tree.set("parameters/Walk/blend_position", move_input)
 		animation_tree.set("parameters/Dash/blend_position", move_input)
 		animation_tree.set("parameters/Idle/blend_position", move_input)
-func pick_state():
+func pick_state(): #Mikä animaatio pitää olla päällä tällä hetkellä
 	if (velocity != Vector2.ZERO) && !dash.is_dashing():
 		state_machine.travel("Walk")
 	elif (Input.is_action_just_pressed("dash")):
