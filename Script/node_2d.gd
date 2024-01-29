@@ -68,6 +68,7 @@ func _draw():
 					Room_AutoMap.append(Vector2i(path['left'].x,path['left'].y+i))
 		tilemap.set_cells_terrain_connect(0, Room_AutoMap, 0,0)
 		Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13))
+		print(tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)))
 		var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
 		Player.position = random_pos
 	pass
