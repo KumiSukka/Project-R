@@ -1,10 +1,14 @@
-[gd_scene load_steps=40 format=3 uid="uid://dobsauiogde3p"]
+[gd_scene load_steps=41 format=3 uid="uid://dobsauiogde3p"]
 
 [ext_resource type="Texture2D" uid="uid://cbjnm06itafcs" path="res://Prefab/Character/kunoichi .png" id="1_2s357"]
 [ext_resource type="Script" path="res://Prefab/Character/Kunoichi.gd" id="1_scndu"]
 [ext_resource type="PackedScene" uid="uid://b5615wo7u3usc" path="res://Scene/Dash.tscn" id="3_lnymi"]
 [ext_resource type="Texture2D" uid="uid://dqi6a0o4biser" path="res://Prefab/Character/pointer.png" id="4_gqydn"]
 [ext_resource type="Script" path="res://Prefab/Character/Pointer.gd" id="5_lwyjw"]
+[ext_resource type="PackedScene" uid="uid://ds7ktn38g3bbi" path="res://Prefab/Projectile/kunai.tscn" id="6_cj2bf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ehmy"]
+size = Vector2(9, 12)
 
 [sub_resource type="Animation" id="Animation_n0r0g"]
 length = 0.6
@@ -592,9 +596,6 @@ _data = {
 "WalkSide": SubResource("Animation_oqusx")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ehmy"]
-size = Vector2(9, 12.5)
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_un7qq"]
 animation = &"DashBackward"
 
@@ -695,14 +696,15 @@ graph_offset = Vector2(-379, -4)
 
 [node name="Kunoichi" type="CharacterBody2D"]
 script = ExtResource("1_scndu")
+Bullet = ExtResource("6_cj2bf")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, 9)
 texture = ExtResource("1_2s357")
 offset = Vector2(0, -16)
 hframes = 7
 vframes = 6
-frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -716,14 +718,25 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://Sprite/kunoichi .aseprite"
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_0ehmy")
+
+[node name="Pointer" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(0, 8)
+texture = ExtResource("4_gqydn")
+script = ExtResource("5_lwyjw")
+
+[node name="Shoot_point" type="Marker2D" parent="Pointer"]
+position = Vector2(4, -3)
+
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_811vw")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -6.25)
-shape = SubResource("RectangleShape2D_0ehmy")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 reset_on_save = false
@@ -737,10 +750,3 @@ parameters/Idle/blend_position = Vector2(0.00251257, 0.0748899)
 parameters/Walk/blend_position = Vector2(-0.0351759, 0.703704)
 
 [node name="Dash" parent="." instance=ExtResource("3_lnymi")]
-
-[node name="Pointer" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.705882)
-show_behind_parent = true
-texture_filter = 1
-texture = ExtResource("4_gqydn")
-script = ExtResource("5_lwyjw")

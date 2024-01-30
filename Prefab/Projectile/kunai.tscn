@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds7ktn38g3bbi"]
+
+[ext_resource type="Texture2D" uid="uid://bhv8bxmt3imrl" path="res://Prefab/Projectile/kunai.png" id="1_bbjo3"]
+[ext_resource type="Script" path="res://Prefab/Projectile/bullet.gd" id="1_ophtt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r7v"]
+size = Vector2(4.24264, 7.07107)
+
+[node name="Kunai" type="Area2D"]
+script = ExtResource("1_ophtt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_y4r7v")
+one_way_collision_margin = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_bbjo3")
