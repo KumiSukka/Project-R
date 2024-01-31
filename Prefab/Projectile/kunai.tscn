@@ -20,3 +20,9 @@ one_way_collision_margin = 0.0
 texture_filter = 1
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_bbjo3")
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
