@@ -1,4 +1,5 @@
 extends Node2D
+
 #This script is poorly named but this handles basicly start of game
 var root_node: Branch
 var tilemap:TileMap

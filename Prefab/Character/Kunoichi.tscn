@@ -705,7 +705,7 @@ texture = ExtResource("1_2s357")
 offset = Vector2(0, -16)
 hframes = 7
 vframes = 6
-frame = 1
+frame = 4
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -727,12 +727,16 @@ shape = SubResource("RectangleShape2D_0ehmy")
 modulate = Color(1, 1, 1, 0.705882)
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(0, 8)
+position = Vector2(0, 3)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_gqydn")
 script = ExtResource("5_lwyjw")
 
-[node name="Shoot_point" type="Marker2D" parent="."]
-position = Vector2(1, 0)
+[node name="Shoot_point" type="Marker2D" parent="Pointer"]
+position = Vector2(2, -1)
+
+[node name="Shoot_rotation" type="Marker2D" parent="Pointer"]
+position = Vector2(3, -1)
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var move_speed = 100
 @export var dash_speed = 300
@@ -11,8 +12,9 @@ extends CharacterBody2D
 @onready var Player_Sprite = $PlayerSprite
 @onready var dash = $Dash
 @onready var state_machine = animation_tree.get("parameters/playback")
-@onready var shoot_point = $Shoot_point
 @onready var pointer = $Pointer
+@onready var shoot_rotation = $Pointer/Shoot_rotation
+@onready var shoot_point = $Pointer/Shoot_point
 
 
 signal player_fired_bullet(bullet, position, direction)
@@ -52,9 +54,8 @@ func _unhandled_input(event): #Used for shooting kunai
 func shoot():
 	#Figure how to use rotation of target/pointer for future control use cases
 	var bullet_instance = Bullet.instantiate()	
-	var target = get_global_mouse_position()
-	var direction_to_target = shoot_point.global_position.direction_to(target).normalized()
-	emit_signal("player_fired_bullet", bullet_instance, shoot_point.global_position, direction_to_target)
+	var direction = (shoot_rotation.global_position - shoot_point.global_position).normalized()
+	emit_signal("player_fired_bullet", bullet_instance, shoot_point.global_position, direction)
 	
 func update_animation_parameters(move_input : Vector2):
 	#Elä vaihda animaatio parameettrejä jos ei imputtia liikkua

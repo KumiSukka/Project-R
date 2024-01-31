@@ -1,4 +1,5 @@
 extends Area2D
+class_name Bullet
 
 @export var projectile_speed = 1
 
@@ -11,3 +12,4 @@ func _process(delta):
 		
 func set_dir(direction: Vector2):
 	self.direction = direction
+	rotation += direction.angle()

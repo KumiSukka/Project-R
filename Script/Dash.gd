@@ -1,4 +1,5 @@
 extends Node2D
+class_name Dash
 
 @onready var duration_timer = $DurationTimer
 const dash_delay = 0.6
