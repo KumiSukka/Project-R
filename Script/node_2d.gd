@@ -1,5 +1,5 @@
 extends Node2D
-
+#This script is poorly named but this handles basicly start of game
 var root_node: Branch
 var tilemap:TileMap
 var tile_size: int = 16
@@ -9,11 +9,13 @@ var Room_AutoMap = []
 var Random_Tile = []
 var Can_Place_Over_These = "can_place"
 @onready var Player = $Kunoichi
+@onready var bullet_manager = $BulletManager
 
 #Tässä piirämme lehdet
 func _ready():
+	Player.player_fired_bullet.connect(bullet_manager.handle_bullet_spawned)
 	tilemap = get_node("TileMap")
-	root_node  = Branch.new(Vector2i(0, 0), Vector2i(120, 50)) #60 leveä ja 30 pitkä
+	root_node  = Branch.new(Vector2i(0, 0), Vector2i(120, 60)) #60 leveä ja 30 pitkä
 	root_node.split(3, paths)
 	queue_redraw()
 	pass

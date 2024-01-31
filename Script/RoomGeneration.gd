@@ -1,5 +1,5 @@
 extends Node
-#Tämä osio toimii oksana
+#Tässä osiossa kehitetään matikka algorytmille eli oksien ja lehtien koot ja niin edelleen ei pitäis tarvita säätää tästä enää oikein mitään
 class_name Branch
 
 var left_child: Branch
