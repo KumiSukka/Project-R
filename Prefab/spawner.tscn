@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv3gu2qk4xq8k"]
+
+[ext_resource type="Texture2D" uid="uid://ca2wk0mn7nvfk" path="res://Prefab/spawner.png" id="1_xglj8"]
+[ext_resource type="Script" path="res://Prefab/spawner.gd" id="1_xh0mt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kjghe"]
+radius = 113.0
+
+[node name="Spawner" type="Area2D"]
+collision_layer = 2
+collision_mask = 5
+input_pickable = false
+script = ExtResource("1_xh0mt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_xglj8")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://Sprite/spawner.aseprite"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+shape = SubResource("CircleShape2D_kjghe")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

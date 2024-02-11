@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://vgfynleldgpl"
+path="res://.godot/imported/spawner.aseprite-6e12aa2b80411511471e314fe10aece4.res"
+
+[deps]
+
+source_file="res://Sprite/spawner.aseprite"
+dest_files=["res://.godot/imported/spawner.aseprite-6e12aa2b80411511471e314fe10aece4.res"]
+
+[params]
+
