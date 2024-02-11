@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var speed = 25
+#Jaetaan joten nopeus korkeampi itseasiassa meinaa hitaampaa
+var speed = 30
 var player_chase = false
 var player = null
 
