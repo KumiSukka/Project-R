@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name karakaza_kozo
 
 #Jaetaan joten nopeus korkeampi itseasiassa meinaa hitaampaa
 var speed = 30
