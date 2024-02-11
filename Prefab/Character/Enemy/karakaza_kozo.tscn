@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4ldfesqnndr7"]
+[gd_scene load_steps=12 format=3 uid="uid://b4ldfesqnndr7"]
 
 [ext_resource type="Texture2D" uid="uid://dhepq0185grpl" path="res://Prefab/Character/Enemy/Kozo.png" id="1_8b57t"]
+[ext_resource type="Script" path="res://Prefab/Character/Enemy/karakaza_kozo.gd" id="1_vh78p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8oss"]
-size = Vector2(12, 22.5)
+size = Vector2(12, 13)
 
 [sub_resource type="Animation" id="Animation_sc8pp"]
 length = 0.1
@@ -403,6 +404,7 @@ _data = {
 radius = 170.751
 
 [node name="Karakaza_Kozo" type="CharacterBody2D"]
+script = ExtResource("1_vh78p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -425,7 +427,7 @@ metadata/_aseprite_wizard_config_ = {
 }
 
 [node name="EnemyCol" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11.25)
+position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_h8oss")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -438,3 +440,6 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
 light_mask = 2
 shape = SubResource("CircleShape2D_3rdjl")
+
+[connection signal="body_entered" from="Detection_Area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection_Area" to="." method="_on_detection_area_body_exited"]
