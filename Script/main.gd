@@ -1,4 +1,6 @@
 extends Node2D
+class_name main
+
 
 #This script is poorly named but this handles basicly start of game
 var root_node: Branch
@@ -69,6 +71,7 @@ func _draw():
 					Room_AutoMap.append(Vector2i(path['left'].x -1,path['left'].y+i))
 					Room_AutoMap.append(Vector2i(path['left'].x +1,path['left'].y+i))
 					Room_AutoMap.append(Vector2i(path['left'].x,path['left'].y+i))
+		tilemap.set_cells_terrain_connect(0, Room_AutoMap, 0,0)
 		#Sijoitetaan pelaaja tileen
 		place_on_tile(Player)
 	pass
@@ -76,7 +79,6 @@ func _draw():
 #Functioon handlaamaan random sijoittaminen, jotta voidaan mahdollisesti hyödyntää vihollisille.
 func place_on_tile(object):
 	#Terrain connect automaps our rooms - from the wanted array
-	tilemap.set_cells_terrain_connect(0, Room_AutoMap, 0,0)
 	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #get all ground tiles
 	var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
 	object.position = random_pos #we place to random tile position using 17, 13 tile thats the regular ground tile

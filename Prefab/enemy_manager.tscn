@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dovhmp0tf1kyu"]
+[gd_scene load_steps=4 format=3 uid="uid://dovhmp0tf1kyu"]
 
 [ext_resource type="Script" path="res://Scene/EnemyManager.gd" id="1_m6f5c"]
+[ext_resource type="PackedScene" uid="uid://b4ldfesqnndr7" path="res://Prefab/Character/Enemy/karakaza_kozo.tscn" id="2_6xx2y"]
 [ext_resource type="PackedScene" uid="uid://dv3gu2qk4xq8k" path="res://Prefab/spawner.tscn" id="2_qht45"]
 
 [node name="EnemyManager" type="Node2D"]
 script = ExtResource("1_m6f5c")
-
-[node name="Spawner" parent="." instance=ExtResource("2_qht45")]
-
-[connection signal="body_entered" from="Spawner" to="." method="_on_spawner_body_entered"]
-[connection signal="body_entered" from="Spawner" to="Spawner" method="_on_body_entered"]
+karakaza_kozo = ExtResource("2_6xx2y")
+spawner = ExtResource("2_qht45")

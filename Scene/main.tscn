@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn5m177dvh1wn"]
+[gd_scene load_steps=11 format=3 uid="uid://cn5m177dvh1wn"]
 
-[ext_resource type="Script" path="res://Script/node_2d.gd" id="1_tadua"]
-[ext_resource type="Texture2D" uid="uid://dopjrv8s5tx21" path="res://Tilemap/Tatami-house-tileseet.png" id="2_b1r5b"]
-[ext_resource type="PackedScene" uid="uid://dobsauiogde3p" path="res://Prefab/Character/Kunoichi.tscn" id="3_6xvrc"]
-[ext_resource type="Script" path="res://Prefab/Projectile/BulletManager.gd" id="4_8lrbr"]
-[ext_resource type="PackedScene" uid="uid://dovhmp0tf1kyu" path="res://Prefab/enemy_manager.tscn" id="5_twfnx"]
-[ext_resource type="PackedScene" uid="uid://b4ldfesqnndr7" path="res://Prefab/Character/Enemy/karakaza_kozo.tscn" id="6_d8kvy"]
+[ext_resource type="Script" path="res://Script/main.gd" id="1_b1ii5"]
+[ext_resource type="Texture2D" uid="uid://dopjrv8s5tx21" path="res://Tilemap/Tatami-house-tileseet.png" id="2_32xbu"]
+[ext_resource type="PackedScene" uid="uid://dobsauiogde3p" path="res://Prefab/Character/Kunoichi.tscn" id="3_ei3xl"]
+[ext_resource type="Script" path="res://Prefab/Projectile/BulletManager.gd" id="4_bd48b"]
+[ext_resource type="PackedScene" uid="uid://dovhmp0tf1kyu" path="res://Prefab/enemy_manager.tscn" id="5_wnnna"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_7mogb"]
 tile_data = PackedInt32Array(0, 1048576, 2, 65536, 1048576, 3, 131072, 1048576, 4, 1, 1114112, 2, 65537, 1114112, 3, 131073, 1114112, 4, 2, 1179648, 2, 65538, 1179648, 3, 131074, 1179648, 4, 3, 1245184, 2, 65539, 1245184, 3, 131075, 1245184, 4, 4, 1310720, 2, 65540, 1310720, 3, 131076, 1310720, 4)
@@ -17,7 +16,7 @@ tile_data = PackedInt32Array(0, 1179648, 2, 65536, 1179648, 3, 131072, 1179648, 
 tile_data = PackedInt32Array(0, 131072, 11, 65536, 131072, 12, 131072, 131072, 13)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p15cq"]
-texture = ExtResource("2_b1r5b")
+texture = ExtResource("2_32xbu")
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
@@ -1004,7 +1003,7 @@ pattern_1 = SubResource("TileMapPattern_5bjjb")
 pattern_2 = SubResource("TileMapPattern_j654j")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_tadua")
+script = ExtResource("1_b1ii5")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -1014,14 +1013,15 @@ layer_0/name = "Seinät"
 layer_1/name = "Lattia"
 layer_1/tile_data = PackedInt32Array(524293, 983041, 8, 524294, 1114113, 8, 524295, 1179649, 8, 524296, 1114113, 8, 524297, 1245185, 8, 524298, 1048577, 8, 524299, 1114113, 8, 524300, 1310721, 8, 458764, 1310721, 7, 393228, 1310721, 7, 327692, 1310721, 6, 327691, 1114113, 6, 327690, 1179649, 6, 327689, 1245185, 6, 327688, 1245185, 6, 327687, 1114113, 6, 327686, 1048577, 6, 327685, 983041, 6, 393221, 983041, 7, 458757, 983041, 7, 458758, 1245185, 7, 393222, 1048577, 7, 393223, 1114113, 7, 458759, 1245185, 7, 458760, 1048577, 7, 393224, 1245185, 7, 393225, 1114113, 7, 393226, 1179649, 7, 393227, 1179649, 7, 458763, 1114113, 7, 458762, 1048577, 7, 458761, 1179649, 7)
 
-[node name="Kunoichi" parent="." instance=ExtResource("3_6xvrc")]
+[node name="Kunoichi" parent="." instance=ExtResource("3_ei3xl")]
 
 [node name="Camera2D" type="Camera2D" parent="Kunoichi"]
 position = Vector2(0, 6)
 zoom = Vector2(5, 5)
 
 [node name="BulletManager" type="Node2D" parent="."]
-script = ExtResource("4_8lrbr")
+script = ExtResource("4_bd48b")
 
-[node name="EnemyManager" parent="." instance=ExtResource("5_twfnx")]
-karakaza_kozo = ExtResource("6_d8kvy")
+[node name="EnemyManager" parent="." instance=ExtResource("5_wnnna")]
+
+[editable path="EnemyManager"]
