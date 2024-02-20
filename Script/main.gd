@@ -13,6 +13,7 @@ var Random_Tile = []
 var Can_Place_Over_These = "can_place"
 @onready var Player = $Kunoichi
 @onready var bullet_manager = $BulletManager
+@onready var enemy_manager = $EnemyManager
 
 #Tässä piirämme lehdet
 func _ready():
@@ -74,6 +75,7 @@ func _draw():
 		tilemap.set_cells_terrain_connect(0, Room_AutoMap, 0,0)
 		#Sijoitetaan pelaaja tileen
 		place_on_tile(Player)
+		place_array_on_tile(enemy_manager.get_children())
 	pass
 
 #Functioon handlaamaan random sijoittaminen, jotta voidaan mahdollisesti hyödyntää vihollisille.
@@ -82,6 +84,13 @@ func place_on_tile(object):
 	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #get all ground tiles
 	var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
 	object.position = random_pos #we place to random tile position using 17, 13 tile thats the regular ground tile
+	pass
+	
+func place_array_on_tile(array):
+	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #get all ground tiles
+	var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
+	for i in array:
+		i.position = random_pos #we place to random tile position using 17, 13 tile thats the regular ground tile
 	pass
 
 func is_inside_padding(x, y, leaf, padding):
