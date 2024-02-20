@@ -2,7 +2,6 @@ extends Node2D
 
 
 @export var SpawnAmount = 10
-@export var karakaza_kozo :PackedScene
 @export var spawner :PackedScene
 @onready var tilemap = main
 

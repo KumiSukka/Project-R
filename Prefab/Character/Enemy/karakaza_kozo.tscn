@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Prefab/Character/Enemy/karakaza_kozo.gd" id="1_vh78p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8oss"]
-size = Vector2(12, 13)
+size = Vector2(10, 13.5)
 
 [sub_resource type="Animation" id="Animation_fy6gj"]
 length = 0.5
@@ -486,7 +486,8 @@ metadata/_aseprite_wizard_config_ = {
 }
 
 [node name="EnemyCol" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6.5)
+y_sort_enabled = true
+position = Vector2(0, -4.75)
 shape = SubResource("RectangleShape2D_h8oss")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -506,8 +507,10 @@ libraries = {
 [node name="Detection_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+show_behind_parent = true
 light_mask = 2
 shape = SubResource("CircleShape2D_3rdjl")
+debug_color = Color(0, 0.627451, 0.517647, 0.419608)
 
 [connection signal="body_entered" from="Detection_Area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection_Area" to="." method="_on_detection_area_body_exited"]
