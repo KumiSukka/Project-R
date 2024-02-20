@@ -88,8 +88,8 @@ func place_on_tile(object):
 	
 func place_array_on_tile(array):
 	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #get all ground tiles
-	var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
 	for i in array:
+		var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
 		i.position = random_pos #we place to random tile position using 17, 13 tile thats the regular ground tile
 	pass
 

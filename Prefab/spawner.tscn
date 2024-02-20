@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Prefab/spawner.gd" id="1_xh0mt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjghe"]
-radius = 113.0
+radius = 51.0
 
 [node name="Spawner" type="Area2D"]
 collision_layer = 2
@@ -40,4 +40,5 @@ autostart = true
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

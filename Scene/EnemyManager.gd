@@ -7,15 +7,10 @@ extends Node2D
 @onready var tilemap = main
 
 
-
 func _ready():
 	spawncircles()
 	pass
 
-func _on_spawner_body_entered(body):
-	var spawned_enemy = karakaza_kozo.instantiate()
-	add_child(spawned_enemy)
-	pass
 
 func spawncircles():
 	for i in range(SpawnAmount):
