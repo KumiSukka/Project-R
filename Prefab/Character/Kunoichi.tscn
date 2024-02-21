@@ -696,6 +696,7 @@ graph_offset = Vector2(-379, -4)
 
 [node name="Kunoichi" type="CharacterBody2D"]
 collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_scndu")
 Bullet = ExtResource("6_cj2bf")
 
@@ -706,7 +707,6 @@ texture = ExtResource("1_2s357")
 offset = Vector2(0, -25)
 hframes = 7
 vframes = 6
-frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

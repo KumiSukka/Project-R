@@ -1026,6 +1026,4 @@ zoom = Vector2(5, 5)
 script = ExtResource("4_bd48b")
 
 [node name="EnemyManager" parent="." instance=ExtResource("5_wnnna")]
-
-[node name="Karakaza_Kozo" parent="." instance=ExtResource("6_kmsr5")]
-position = Vector2(779, 569)
+enemy1 = ExtResource("6_kmsr5")

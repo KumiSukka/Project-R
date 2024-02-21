@@ -3,16 +3,19 @@ extends Node2D
 
 @export var SpawnAmount = 10
 @export var spawner :PackedScene
+@export var enemy1 :PackedScene
 @onready var tilemap = main
 
 
 func _ready():
 	spawncircles()
 	pass
+	
 
-
-func spawncircles():
+func spawncircles(): #Spawnaa vihollisen vaikak lukee circle nyt vaan vihollinen hajoaa jos spawnaa circlen lapsena
 	for i in range(SpawnAmount):
-		var new_spawner = spawner.instantiate()
-		add_child(new_spawner)
-#Selvitä miten sijoitat spawnatun vihollisen tilemappiin random kohtaan siten, että et sijoita kaikkia sinne samaan kohtaan
+		var new_enemy = enemy1.instantiate()
+		add_child(new_enemy)
+
+
+#Pitää spawnata vihollinen eka, jotta systeemi toimii tuli selväksi
