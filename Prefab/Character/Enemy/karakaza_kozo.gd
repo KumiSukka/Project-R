@@ -3,13 +3,16 @@ class_name karakaza_kozo
 
 #Jaetaan joten nopeus korkeampi itseasiassa meinaa hitaampaa
 var speed = 25
-var hp = 125
+var health = 125
 var player_chase = false
 var player = null
+var player_attack_zone = false
 @onready var animationTree = $AnimationTree
 @onready var enemySprite = $Sprite2D
 
 func _physics_process(delta):
+	deal_with_damage()
+	
 	if player_chase:
 		#add here logick to chanse to chase animation state
 		position += (player.position - position)/speed
@@ -35,3 +38,20 @@ func _on_detection_area_body_exited(body):
 #Enemy will have enemy method that basicly does nothing but signalls that its a enemy same for player
 func enemy():
 	pass
+
+
+func _on_enemy_hitbox_body_entered(body):
+	if body.has_method("player"):
+		player_attack_zone = true
+
+
+func _on_enemy_hitbox_body_exited(body):
+	if body.has_method("player"):
+		player_attack_zone = false
+		
+func deal_with_damage():
+	if player_attack_zone and Global.player_current_attack == true:
+		health = health - 20
+		print("slime health = ", health)
+		if health <=0:
+			self.queue_free
