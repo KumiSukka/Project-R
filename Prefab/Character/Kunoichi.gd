@@ -17,6 +17,7 @@ var alive = true
 @onready var pointer = $Pointer
 @onready var shoot_rotation = $Pointer/Shoot_rotation
 @onready var shoot_point = $Pointer/Shoot_point
+@onready var Invulnerable = $invulnerable
 
 #Ememy attack range and cooldown variables
 var enemy_attack_range = false
@@ -53,6 +54,11 @@ func _physics_process(delta):
 	move_and_slide()
 	pick_state()
 	enemy_attack()
+	
+	if health <=0:
+		alive = false #Add end screen here
+		health = 0
+		print("played dead")
 
 func _unhandled_input(event): #Used for shooting kunai
 	if event.is_action_pressed("attack"):
@@ -92,6 +98,13 @@ func _on_player_hitbox_body_exited(body):
 		enemy_attack_range = false
 
 func enemy_attack():
-	if enemy_attack_range:
-		print("player took damage")
+	if enemy_attack_range && ememy_attack_cooldown == true:
+		health = health - 20
+		ememy_attack_cooldown = false
+		Invulnerable.start()
+		print(health)
 	
+
+
+func _on_invulnerable_timeout():
+	ememy_attack_cooldown = true

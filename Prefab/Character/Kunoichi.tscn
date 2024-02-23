@@ -710,7 +710,7 @@ texture = ExtResource("1_2s357")
 offset = Vector2(0, -25)
 hframes = 7
 vframes = 6
-frame = 2
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -768,5 +768,9 @@ parameters/Walk/blend_position = Vector2(-0.0351759, 0.703704)
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_oodj3")
 
+[node name="invulnerable" type="Timer" parent="."]
+wait_time = 0.35
+
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="invulnerable" to="." method="_on_invulnerable_timeout"]
