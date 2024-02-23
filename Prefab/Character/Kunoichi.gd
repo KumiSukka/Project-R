@@ -1,9 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
+@export var health = 100
 @export var move_speed = 100
 @export var dash_speed = 300
 @export var dash_duration = 0.3
+var alive = true
 @export var starting_direction : Vector2 = Vector2(0, 1)
 @export var Bullet :PackedScene
 #parameters/Idle/blend_position
@@ -15,6 +17,10 @@ class_name Player
 @onready var pointer = $Pointer
 @onready var shoot_rotation = $Pointer/Shoot_rotation
 @onready var shoot_point = $Pointer/Shoot_point
+
+#Ememy attack range and cooldown variables
+var enemy_attack_range = false
+var ememy_attack_cooldown = true
 
 
 signal player_fired_bullet(bullet, position, direction)
@@ -46,6 +52,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	pick_state()
+	enemy_attack()
 
 func _unhandled_input(event): #Used for shooting kunai
 	if event.is_action_pressed("attack"):
@@ -70,3 +77,21 @@ func pick_state(): #Mikä animaatio pitää olla päällä tällä hetkellä
 		state_machine.travel("Dash")
 	elif (velocity == Vector2.ZERO):
 		state_machine.travel("Idle")
+
+#Player will have player method that basicly does nothing but signalls that its a player same for enemy
+func player():
+	pass
+
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_attack_range = true
+
+
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_attack_range = false
+
+func enemy_attack():
+	if enemy_attack_range:
+		print("player took damage")
+	
