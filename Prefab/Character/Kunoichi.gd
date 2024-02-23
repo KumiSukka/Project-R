@@ -70,6 +70,7 @@ func shoot():
 	var direction = (shoot_rotation.global_position - shoot_point.global_position).normalized()
 	emit_signal("player_fired_bullet", bullet_instance, shoot_point.global_position, direction)
 	
+	
 func update_animation_parameters(move_input : Vector2):
 	#Elä vaihda animaatio parameettrejä jos ei imputtia liikkua
 	if (move_input != Vector2.ZERO):

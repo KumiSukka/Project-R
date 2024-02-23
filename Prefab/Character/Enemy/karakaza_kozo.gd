@@ -39,19 +39,19 @@ func _on_detection_area_body_exited(body):
 func enemy():
 	pass
 
-
-func _on_enemy_hitbox_body_entered(body):
-	if body.has_method("player"):
-		player_attack_zone = true
-
-
-func _on_enemy_hitbox_body_exited(body):
-	if body.has_method("player"):
-		player_attack_zone = false
-		
 func deal_with_damage():
-	if player_attack_zone and Global.player_current_attack == true:
+	if player_attack_zone:
 		health = health - 20
 		print("slime health = ", health)
 		if health <=0:
 			self.queue_free
+
+
+func _on_enemy_hitbox_area_entered(area):
+	if area.has_method("player"):
+		player_attack_zone = true
+
+
+func _on_enemy_hitbox_area_exited(area):
+	if area.has_method("player"):
+		player_attack_zone = false

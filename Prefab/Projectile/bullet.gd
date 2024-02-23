@@ -23,3 +23,6 @@ func set_dir(direction: Vector2):
 
 func _on_kill_timer_timeout(): #Käytä queue_free elä ikinä vain free
 	queue_free()
+
+func player():
+	pass
