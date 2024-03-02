@@ -27,4 +27,7 @@ func _on_kill_timer_timeout(): #Käytä queue_free elä ikinä vain free
 func _on_body_entered(body):
 	if body.has_method("deal_with_damage"):
 		body.deal_with_damage()
+		queue_free()
+	if (body.get_name() == "TileMap"):
+		queue_free()
 		
