@@ -2,17 +2,14 @@ extends CharacterBody2D
 class_name karakaza_kozo
 
 #Jaetaan joten nopeus korkeampi itseasiassa meinaa hitaampaa
-var speed = 25
+var speed = 45
 var health = 125
 var player_chase = false
 var player = null
-var player_attack_zone = false
 @onready var animationTree = $AnimationTree
 @onready var enemySprite = $Sprite2D
 
 func _physics_process(delta):
-	deal_with_damage()
-	
 	if player_chase:
 		#add here logick to chanse to chase animation state
 		position += (player.position - position)/speed
@@ -40,18 +37,12 @@ func enemy():
 	pass
 
 func deal_with_damage():
-	if player_attack_zone:
 		health = health - 20
-		print("slime health = ", health)
+		print("enemy health = ", health)
 		if health <=0:
-			self.queue_free
+			queue_free()
 
 
-func _on_enemy_hitbox_area_entered(area):
-	if area.has_method("player"):
-		player_attack_zone = true
 
 
-func _on_enemy_hitbox_area_exited(area):
-	if area.has_method("player"):
-		player_attack_zone = false
+

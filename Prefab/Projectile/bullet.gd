@@ -24,5 +24,7 @@ func set_dir(direction: Vector2):
 func _on_kill_timer_timeout(): #Käytä queue_free elä ikinä vain free
 	queue_free()
 
-func player():
-	pass
+func _on_body_entered(body):
+	if body.has_method("deal_with_damage"):
+		body.deal_with_damage()
+		
