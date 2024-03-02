@@ -461,7 +461,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-174, -42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rdjl"]
-radius = 99.0808
+radius = 171.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpibr"]
 radius = 15.0333
@@ -516,6 +516,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
 show_behind_parent = true
 light_mask = 2
+position = Vector2(0, -10.705)
 shape = SubResource("CircleShape2D_3rdjl")
 debug_color = Color(0, 0.627451, 0.517647, 0.419608)
 
