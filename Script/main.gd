@@ -80,17 +80,16 @@ func _draw():
 
 #Functioon handlaamaan random sijoittaminen, jotta voidaan mahdollisesti hyödyntää vihollisille.
 func place_on_tile(object):
-	#Terrain connect automaps our rooms - from the wanted array
-	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #get all ground tiles
+	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #hae kaikki lattia tilet
 	var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
-	object.position = random_pos #we place to random tile position using 17, 13 tile thats the regular ground tile
+	object.position = random_pos #sijoita random tileen objekti
 	pass
 	
 func place_array_on_tile(array):
-	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #get all ground tiles
+	Random_Tile += tilemap.get_used_cells_by_id(0, 0, Vector2i(17, 13)) #hae kaikki lattia tilet
 	for i in array:
 		var random_pos = Vector2i(Random_Tile.pick_random()) * 16 
-		i.position = random_pos #we place to random tile position using 17, 13 tile thats the regular ground tile
+		i.position = random_pos #sijoita random tileen objekti arraysta
 	pass
 
 func is_inside_padding(x, y, leaf, padding):

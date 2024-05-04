@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name karakaza_kozo
 
 #Jaetaan joten nopeus korkeampi itseasiassa meinaa hitaampaa
-var speed = 45
+var speed = 30
 var health = 125
 var player_chase = false
 var player = null
@@ -13,7 +13,7 @@ func _physics_process(delta):
 	if player_chase:
 		#add here logick to chanse to chase animation state
 		position += (player.position - position)/speed
-		
+		move_and_slide()
 		if(player.position.x - position.x) < 0:
 			enemySprite.flip_h = true
 		else:

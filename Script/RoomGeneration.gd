@@ -12,7 +12,7 @@ func _init(position, size):
 	self.position = position
 	self.size = size
 	
-func get_leaves():
+func get_leaves(): #Hae lehdet
 	if not(left_child && right_child):
 		return [self]
 	else:
@@ -47,8 +47,6 @@ func split(remaining, paths):
 		right_child.split(remaining - 1, paths)
 	paths.push_back({'left': left_child.get_center(), 'right': right_child.get_center()})
 	pass
-# We are trying to keep everything as ints, this is so that it makes it easier to swap out each 1x1 for a tile in our tilemap later.
-# We recursively split cells until remaining is zero. This means we only have to call split(5) on the root node, and it will give us 32 rooms.
 
 
 	#https://jonoshields.com/post/bsp-dungeon Tämän hienon dugemention bsp dungeonista mukaan täystetty systeemin pohja, koska kävi läpi godotissa ja myöskin miten mapata autotilet, jonka kanssa minulla on suuresti ollut ongelmia
